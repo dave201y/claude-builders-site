@@ -37,6 +37,10 @@
             align-items: center;
             padding: 1rem 0;
         }
+        .nav-right {
+            display: flex;
+            gap: 2.2rem;
+        }
         .nav-right a {
             color: #18181a;
             font-family: 'Inter', Arial, sans-serif;
@@ -121,6 +125,25 @@
         .nav-links a:hover::after, .nav-links a.active::after {
             width: 80%;
         }
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #18181a;
+            margin: 2px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
         main {
             margin-top: 80px;
         }
@@ -219,6 +242,7 @@
             position: relative;
             overflow: hidden;
             border: none;
+            display: inline-block;
         }
         .btn-primary:hover {
             background: #a67c52;
@@ -233,6 +257,7 @@
             font-size: 1.1rem;
             border: 1px solid #c7a07b;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         .btn-secondary:hover {
             background: #c7a07b;
@@ -276,23 +301,137 @@
             color: #9ca3af;
         }
 
-        /* Responsive Design */
+        /* Enhanced Mobile Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .container {
+                padding: 0 16px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-right {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                transform: translateY(-100vh);
+                transition: transform 0.3s ease;
+                padding: 1rem 0;
+            }
+            
+            .nav-right.active {
+                transform: translateY(0);
+            }
+            
+            .nav-right a {
+                padding: 1rem 2rem;
+                border-bottom: 1px solid #f3f3f3;
+                width: 100%;
+                text-align: left;
+                border-radius: 0;
+            }
+            
+            .nav-right a:last-child {
+                border-bottom: none;
+                margin: 1rem 2rem 0;
+                width: calc(100% - 4rem);
+                text-align: center;
+                border-radius: 8px;
+            }
+            
+            main {
+                margin-top: 70px;
             }
             
             .features-section {
                 flex-direction: column;
-                padding: 3rem 0 2rem 0;
+                padding: 2rem 0;
+                gap: 2rem;
+                min-height: auto;
             }
             
             .section-header {
                 text-align: center;
+                max-width: 100%;
             }
             
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .section-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .features-section > div[style*="display:flex"] {
+                flex-direction: column !important;
+                gap: 2rem !important;
+                min-height: auto !important;
+            }
+            
+            .features-section img {
+                max-width: 280px !important;
+                width: 100% !important;
+                order: -1;
+            }
+            
+            .features-section > div[style*="display:flex"] > div:first-child {
+                order: 1;
+            }
+            
+            .features-section > div[style*="display:flex"] > div:last-child {
+                flex: none !important;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-description {
+                font-size: 0.95rem;
+            }
+            
+            nav .nav-title {
+                font-size: 1.3rem !important;
+            }
+            
+            nav img {
+                height: 32px !important;
+                margin-right: 0.5rem !important;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+            
+            .features-section > div[style*="display:flex"] > div:first-child > div:last-child {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
             }
         }
     </style>
@@ -302,15 +441,20 @@
         <div class="container">
             <nav>
                 <div class="nav-left" style="display: flex; align-items: center;">
-                            <img src="Claude Builders Logo Design.png" alt="Claude Builders Logo" style="height: 40px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #f6f5f2; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-                            <a href="index.html" class="nav-title" style="font-size: 1.5rem; font-weight: 700; color: #18181a; letter-spacing: 1px; text-decoration: none;">Claude Builders</a>
+                    <img src="images/Claude Builders Logo Design.png" alt="Claude Builders Logo" style="height: 40px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #f6f5f2; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                    <a href="index.html" class="nav-title" style="font-size: 1.5rem; font-weight: 700; color: #c7a07b; letter-spacing: 1px; text-decoration: none;">Claude Builders</a>
                 </div>
-                <div class="nav-right" style="display: flex; gap: 2.2rem;">
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-right">
                     <a href="index.html" class="active">Home</a>
                     <a href="about.html">About</a>
                     <a href="events.html">Events</a>
                     <a href="contact.html">Contact</a>
-                            <a href="signup.html" style="background:#18181a; color:#fff; font-weight:700; border-radius:8px; padding:0.5rem 1.1rem;">Sign Up</a>
+                    <a href="signup.html" style="background:#a67c52; color:#fff; font-weight:700; border-radius:8px; padding:0.5rem 1.1rem;">Sign Up</a>
                 </div>
             </nav>
         </div>
@@ -328,7 +472,7 @@
                     </div>
                 </div>
                 <div style="flex:1; display:flex; justify-content:center; align-items:center;">
-                    <img src="2G.jpg" alt="Claude AI" style="max-width:340px; width:100%; border-radius:1.5rem; box-shadow:none; background:#f5f5f5;">
+                    <img src="images/2G.jpg" alt="Claude AI" style="max-width:340px; width:100%; border-radius:1.5rem; box-shadow:none; background:#f5f5f5;">
                 </div>
             </div>
         </section>
@@ -369,6 +513,23 @@
     </footer>
 
     <script>
+        function toggleMobileMenu() {
+            const navRight = document.querySelector('.nav-right');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            navRight.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navRight = document.querySelector('.nav-right');
+            if (!nav.contains(event.target) && navRight.classList.contains('active')) {
+                navRight.classList.remove('active');
+                document.querySelector('.mobile-menu-toggle').classList.remove('active');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -417,40 +578,6 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
-
-        // Counter animation for stats
-        const animateCounter = (element, target) => {
-            let count = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                count += increment;
-                if (count >= target) {
-                    element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(count) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
-                }
-            }, 20);
-        };
-
-        // Trigger counter animation when stats section is visible
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-item h3');
-                    statNumbers.forEach(stat => {
-                        const target = parseInt(stat.textContent);
-                        animateCounter(stat, target);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        const statsSection = document.querySelector('.stats-section');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
     </script>
 </body>
 </html>
