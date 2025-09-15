@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Claude Builders Mnsu Chapter</title>
+    <style>
+        /* Claude AI Web Style Cleanup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: #18181a;
+            background: #fff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #ececec;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-right a {
+            color: #18181a;
+            font-family: 'Inter', Arial, sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+            font-size: 1.08rem;
+            letter-spacing: 0.01em;
+        }
+        .nav-right a:hover, .nav-right a.active {
+            background: #f3f3f3;
+            color: #18181a;
+            text-decoration: none;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #18181a;
+            text-decoration: none;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .claude-icon {
+            width: 45px;
+            height: 45px;
+            background: #c7a07b;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(167, 124, 82, 0.15);
+        }
+        .mnsu-accent {
+            color: #a67c52;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #c7a07b;
+            background: #ede7df;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: #c7a07b;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 80%;
+        }
+        main {
+            margin-top: 80px;
+        }
+        .features-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6rem 0 4rem 0;
+            background: #fff;
+            margin: 0;
+            min-height: 70vh;
+        }
+        .section-header {
+            text-align: left;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+        }
+        .section-badge {
+            display: inline-block;
+            background: #c7a07b;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #18181a;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+        }
+        .section-description {
+            font-size: 1.18rem;
+            color: #222;
+            max-width: 600px;
+            margin: 0 0 2.5rem 0;
+            line-height: 1.6;
+        }
+        .feature-card {
+            background: #f6f5f2;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ede7df;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 32px rgba(167, 124, 82, 0.08);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #c7a07b;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(167, 124, 82, 0.10);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        .feature-card p {
+            color: #555;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        .btn-primary {
+            background: #c7a07b;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(167, 124, 82, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #a67c52;
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #a67c52;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 1px solid #c7a07b;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #c7a07b;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #f59e0b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .features-section {
+                flex-direction: column;
+                padding: 3rem 0 2rem 0;
+            }
+            
+            .section-header {
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-left" style="display: flex; align-items: center;">
+                            <img src="images/Claude Builders Logo Design.png" alt="Claude Builders Logo" style="height: 40px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #f6f5f2; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                            <a href="index.html" class="nav-title" style="font-size: 1.5rem; font-weight: 700; color: #18181a; letter-spacing: 1px; text-decoration: none;">Claude Builders</a>
+                </div>
+                <div class="nav-right" style="display: flex; gap: 2.2rem;">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="events.html">Events</a>
+                    <a href="contact.html">Contact</a>
+                            <a href="signup.html" style="background:#18181a; color:#fff; font-weight:700; border-radius:8px; padding:0.5rem 1.1rem;">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="features-section">
+            <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:3rem; min-height:60vh;">
+                <div class="section-header">
+                    <h1 class="section-title" style="font-size:3.5rem; margin-bottom:1.2rem;">Meet Claude Builders</h1>
+                    <p class="section-description" style="font-size:1.25rem; margin-bottom:2.5rem;">Claude Builders is a new RSO at MNSU dedicated to exploring the future of AI with Claude. We offer hands-on workshops, project builds, and interview prep using the most advanced AI conversation partner available. Join us as we build, learn, and grow together—no experience required, just curiosity and excitement for what's next.</p>
+                    <div style="display:flex; gap:1rem;">
+                        <a href="signup.html" style="background:#18181a; color:#fff; font-family:'Inter',Arial,sans-serif; font-weight:600; font-size:1.1rem; padding:0.9rem 2.2rem; border-radius:7px; text-decoration:none; border:1.5px solid #18181a;">Sign Up</a>
+                        <a href="https://claude.ai/" style="background:#fff; color:#18181a; font-family:'Inter',Arial,sans-serif; font-weight:600; font-size:1.1rem; padding:0.9rem 2.2rem; border-radius:7px; text-decoration:none; border:1.5px solid #18181a;" target="_blank">Claude AI</a>
+                    </div>
+                </div>
+                <div style="flex:1; display:flex; justify-content:center; align-items:center;">
+                    <img src="images/2G.jpg" alt="Claude AI" style="max-width:340px; width:100%; border-radius:1.5rem; box-shadow:none; background:#f5f5f5;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Claude Builders</h3>
+                    <p>Minnesota State University Mankato Chapter</p>
+                    <p>Building the future of AI through student innovation and community collaboration.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="events.html">Events</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                    <p><a href="signup.html">Sign Up</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Minnesota State University</p>
+                    <p>Mankato, MN 56001</p>
+                    <p><a href="mailto:claudebuilders@gmail.com">claudebuilders@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p><a href="https://www.linkedin.com/company/msu-claude-builders/about/?viewAsMember=true" target="_blank" style="color:#0a66c2; font-weight:600;">LinkedIn</a></p>
+                    <p><a href="https://www.instagram.com/claudemnsu2025/" target="_blank" style="color:#d6249f; font-weight:600;">Instagram</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Claude Builders Mnsu Chapter. All rights reserved. | Go Mavericks!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        const animateCounter = (element, target) => {
+            let count = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(count) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                }
+            }, 20);
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-item h3');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.textContent);
+                        animateCounter(stat, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

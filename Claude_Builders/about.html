@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Claude Builders Mnsu Chapter</title>
+    <style>
+        /* Claude AI Web Style Cleanup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: #18181a;
+            background: #fff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #ececec;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-right a {
+            color: #18181a;
+            font-family: 'Inter', Arial, sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+            font-size: 1.08rem;
+            letter-spacing: 0.01em;
+        }
+        .nav-right a:hover, .nav-right a.active {
+            background: #f3f3f3;
+            color: #18181a;
+            text-decoration: none;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #18181a;
+            text-decoration: none;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        main {
+            margin-top: 80px;
+        }
+        .features-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6rem 0 4rem 0;
+            background: #fff;
+            margin: 0;
+            min-height: 70vh;
+        }
+        .section-header {
+            text-align: left;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+        }
+        .section-title {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #18181a;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+        }
+        .section-description {
+            font-size: 1.18rem;
+            color: #222;
+            max-width: 600px;
+            margin: 0 0 2.5rem 0;
+            line-height: 1.6;
+        }
+        .btn-primary {
+            background: #c7a07b;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(167, 124, 82, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #a67c52;
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #a67c52;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 1px solid #c7a07b;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #c7a07b;
+            color: #fff;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card, .vision-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+
+        .mission-card:hover::before, .vision-card:hover::before {
+            transform: scale(1);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-text {
+            color: #6b7280;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #ffffff, #f9fafb);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #d97706;
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-text {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, #ffffff, #f9fafb);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.3);
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: #7c2d92;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* MNSU Pride Section */
+        .mnsu-pride {
+            background: linear-gradient(135deg, #7c2d92 0%, #a855f7 100%);
+            color: white;
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mnsu-pride::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 20s infinite linear;
+        }
+
+        .mnsu-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .mnsu-logo {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #f59e0b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .features-section {
+                flex-direction: column;
+                padding: 3rem 0 2rem 0;
+            }
+            
+            .section-header {
+                text-align: center;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-left" style="display: flex; align-items: center;">
+                            <img src="images/Claude Builders Logo Design.png" alt="Claude Builders Logo" style="height: 40px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #f6f5f2; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                            <a href="index.html" class="nav-title" style="font-size: 1.5rem; font-weight: 700; color: #18181a; letter-spacing: 1px; text-decoration: none;">Claude Builders</a>
+                </div>
+                <div class="nav-right" style="display: flex; gap: 2.2rem;">
+                    <a href="index.html">Home</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="events.html">Events</a>
+                    <a href="contact.html">Contact</a>
+                            <a href="signup.html" style="background:#18181a; color:#fff; font-weight:700; border-radius:8px; padding:0.5rem 1.1rem;">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="features-section">
+            <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:3rem; min-height:60vh;">
+                <div class="section-header">
+                    <h1 class="section-title" style="font-size:3.2rem; margin-bottom:1.2rem;">About Claude AI</h1>
+                    <p class="section-description" style="font-size:1.18rem; margin-bottom:2.5rem;">Claude is the most advanced AI conversation partner available today. Unlike basic chatbots, Claude thinks critically, reasons through complex problems, and adapts to your expertise level—making it perfect for students tackling real academic challenges.<br><br><strong>What Makes Claude Special:</strong><br>Claude doesn't just give you answers—it helps you think better. Whether you're writing papers, debugging code, or working through research projects, Claude provides thoughtful, reliable assistance that actually helps you learn and grow.<br><br>Built by Anthropic with a focus on safety and honesty, Claude acknowledges what it doesn't know instead of making things up. It excels at breaking down complex topics, maintaining context through long conversations, and providing the kind of nuanced help that makes the difference between good work and great work.<br><br><strong>Why We Chose Claude:</strong><br>While other AIs give generic responses, Claude engages in genuine dialogue. It's like having the smartest study partner who never gets tired, never judges your questions, and always pushes you to think deeper.<br><br>That's why our RSO is built around Claude—because students deserve AI that makes them smarter, not just faster.</p>
+                    <div style="display:flex; gap:1rem;">
+                        <a href="signup.html" style="background:#18181a; color:#fff; font-family:'Inter',Arial,sans-serif; font-weight:600; font-size:1.1rem; padding:0.9rem 2.2rem; border-radius:7px; text-decoration:none; border:1.5px solid #18181a;">Sign Up</a>
+                        <a href="events.html" style="background:#fff; color:#18181a; font-family:'Inter',Arial,sans-serif; font-weight:600; font-size:1.1rem; padding:0.9rem 2.2rem; border-radius:7px; text-decoration:none; border:1.5px solid #18181a;">Events</a>
+                    </div>
+                </div>
+                <div style="flex:1; display:flex; justify-content:center; align-items:center;">
+                    <img src="images/about.webp" alt="About Claude Builders" style="max-width:340px; width:100%; border-radius:1.5rem; box-shadow:none; background:#f5f5f5;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Claude Builders</h3>
+                    <p>Minnesota State University Mankato Chapter</p>
+                    <p>Building the future of AI through student innovation and community collaboration.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="events.html">Events</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                    <p><a href="signup.html">Sign Up</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Minnesota State University</p>
+                    <p>Mankato, MN 56001</p>
+                    <p><a href="mailto:claudebuilders@mnsu.edu">claudebuilders@mnsu.edu</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p><a href="https://www.linkedin.com/company/msu-claude-builders/about/?viewAsMember=true" target="_blank" style="color:#0a66c2; font-weight:600;">LinkedIn</a></p>
+                    <p><a href="https://www.instagram.com/claudemnsu2025/" target="_blank" style="color:#d6249f; font-weight:600;">Instagram</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Claude Builders Mnsu Chapter. All rights reserved. | Go Mavericks!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.mission-card, .vision-card, .value-card, .team-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
