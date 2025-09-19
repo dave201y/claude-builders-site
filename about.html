@@ -37,10 +37,6 @@
             align-items: center;
             padding: 1rem 0;
         }
-        .nav-right {
-            display: flex;
-            gap: 2.2rem;
-        }
         .nav-right a {
             color: #18181a;
             font-family: 'Inter', Arial, sans-serif;
@@ -56,39 +52,6 @@
             background: #f3f3f3;
             color: #18181a;
             text-decoration: none;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #18181a;
-            text-decoration: none;
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #18181a;
-            margin: 2px 0;
-            transition: 0.3s;
-            border-radius: 2px;
         }
         
         main {
@@ -106,7 +69,7 @@
         .section-header {
             text-align: left;
             margin-bottom: 2.5rem;
-            max-width: 540px;
+            max-width: 800px;
         }
         .section-title {
             font-family: 'Georgia', 'Times New Roman', Times, serif;
@@ -119,7 +82,7 @@
         .section-description {
             font-size: 1.18rem;
             color: #222;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 0 2.5rem 0;
             line-height: 1.6;
         }
@@ -141,127 +104,141 @@
         .btn-primary:hover {
             background: #a67c52;
         }
-        .btn-secondary {
-            background: #fff;
-            color: #a67c52;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border: 1px solid #c7a07b;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .btn-secondary:hover {
-            background: #c7a07b;
-            color: #fff;
-        }
-        
-        .section {
+
+        /* Content Section Styling */
+        .content-section {
             padding: 4rem 0;
         }
 
-        .section-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #d97706, #f59e0b);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Mission & Vision */
-        .mission-vision {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .mission-card, .vision-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .mission-card::before, .vision-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
-            transform: scale(0);
-            transition: transform 0.6s ease;
-        }
-
-        .mission-card:hover::before, .vision-card:hover::before {
-            transform: scale(1);
-        }
-
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #d97706, #f59e0b);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin: 0 auto 2rem;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.3);
-        }
-
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-text {
-            color: #6b7280;
-            line-height: 1.7;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Values Section */
-        .values-grid {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .value-card {
+        .feature-card {
             background: linear-gradient(135deg, #ffffff, #f9fafb);
+            border-radius: 20px;
             padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .value-card:hover {
-            transform: translateY(-5px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c7a07b, #a67c52);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .feature-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #f59e0b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .features-section {
+                flex-direction: column;
+                padding: 3rem 0 2rem 0;
             }
+            
+            .section-header {
+                text-align: center;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .features-section {
+                flex-direction: column;
+                padding: 3rem 0 2rem 0;
+                min-height: 50vh;
+            }
+            .section-header {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 8px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .features-section {
+                padding: 2rem 0 1rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -269,175 +246,79 @@
         <div class="container">
             <nav>
                 <div class="nav-left" style="display: flex; align-items: center;">
-                    <img src="images/Claude Builders Logo Design.png" alt="Claude Builders Logo" style="height: 40px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #f6f5f2; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-                    <a href="index.html" class="nav-title" style="font-size: 1.5rem; font-weight: 700; color: #c7a07b; letter-spacing: 1px; text-decoration: none;">Claude Builders</a>
+                    <img src="Claude Builders Logo Design.png" alt="Claude Builders Logo" style="height: 40px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #f6f5f2; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                    <a href="index.html" class="nav-title" style="font-size: 1.5rem; font-weight: 700; color: #18181a; letter-spacing: 1px; text-decoration: none;">Claude Builders</a>
                 </div>
-                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="nav-right">
+                <div class="nav-right" style="display: flex; gap: 2.2rem;">
                     <a href="index.html">Home</a>
                     <a href="about.html" class="active">About</a>
                     <a href="events.html">Events</a>
                     <a href="contact.html">Contact</a>
-                    <a href="signup.html" style="background:#a67c52; color:#fff; font-weight:700; border-radius:8px; padding:0.5rem 1.1rem;">Sign Up</a>
+                    <a href="signup.html" style="background:#18181a; color:#fff; font-weight:700; border-radius:8px; padding:0.5rem 1.1rem;">Sign Up</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="features-section">
-            <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:3rem; min-height:60vh;">
-                <div class="section-header">
-                    <h1 class="section-title" style="font-size:3.2rem; margin-bottom:1.2rem;">Empowering Mavericks to Build the Future of AI</h1>
-                    <p class="section-description" style="font-size:1.18rem; margin-bottom:2.5rem;">Claude Builders is Minnesota State University Mankato’s student-led hub for exploring, building, and innovating with Claude AI. We welcome all skill levels—no experience required, just curiosity and a passion for what’s next in artificial intelligence.</p>
-                    <div style="display:flex; gap:1rem; margin-bottom:1.5rem;">
-                        <a href="signup.html" class="btn-primary" style="background:#a67c52;">Join Us</a>
-                        <a href="#learn-more" class="btn-secondary">Learn More</a>
-                    </div>
-                </div>
-                <div style="flex:1; display:flex; justify-content:center; align-items:center;">
-                    <img src="images/2G.jpg" alt="Claude AI" style="max-width:340px; width:100%; border-radius:1.5rem; box-shadow:none; background:#f5f5f5;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Mission & Vision -->
-        <section class="section" id="learn-more">
-            <div class="container">
-                <div class="mission-vision">
-                    <div class="mission-card">
-                        <div class="card-icon">🚀</div>
-                        <div class="card-title">Our Mission</div>
-                        <div class="card-text">To empower Mavericks to explore, learn, and create with AI through hands-on projects, workshops, and real-world challenges—preparing students for tomorrow’s AI-driven world.</div>
-                    </div>
-                    <div class="vision-card">
-                        <div class="card-icon">🌟</div>
-                        <div class="card-title">Our Vision</div>
-                        <div class="card-text">To be the Midwest’s leading university hub for AI innovation, collaboration, and ethical leadership—open to all, driven by curiosity and community.</div>
-                    </div>
+            <div class="container" style="max-width:900px; margin:0 auto; padding-top:4.5rem;">
+                <div class="section-header" style="text-align:left; max-width:800px; margin-bottom:2.5rem;">
+                    <h1 class="section-title" style="font-size:3.2rem; margin-bottom:1.2rem;">About Claude AI</h1>
+                    <p class="section-description" style="font-size:1.18rem; margin-bottom:2.2rem; color:#222;">
+                        Claude is a next-generation AI assistant created by Anthropic. Built to be helpful, harmless, and honest, Claude represents the cutting edge of conversational AI technology. With advanced reasoning capabilities, Claude can assist with complex problem-solving, creative tasks, analysis, coding, writing, and much more—all while maintaining a natural, thoughtful conversation style.
+                    </p>
+                    <p class="section-description" style="font-size:1.18rem; margin-bottom:2.5rem; color:#222;">
+                        Unlike traditional AI tools, Claude is designed for nuanced dialogue and can understand context, follow instructions precisely, and engage in multi-step reasoning. This makes it an ideal learning partner for students exploring AI applications, workflow automation, research assistance, and creative collaboration.
+                    </p>
+                    <a href="https://claude.ai/" target="_blank" class="btn-primary" style="background:#c7a07b;">Visit Claude AI</a>
                 </div>
             </div>
         </section>
 
-        <!-- What We Do -->
-        <section class="section">
+        <section class="content-section">
             <div class="container">
-                <h2 class="section-title" style="font-size:2rem; margin-bottom:1.5rem;">What We Do</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="card-title">Workshops & Projects</div>
-                        <div class="card-text">Hands-on sessions, hackathons, and real-world projects using Claude AI and other cutting-edge tools.</div>
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #18181a; text-align: center; margin-bottom: 3rem;">What Claude AI Offers</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3 class="feature-title">Advanced Reasoning</h3>
+                        <p class="feature-description">Claude can tackle complex problems, break down multi-step processes, and provide detailed analysis across diverse subjects from mathematics to philosophy.</p>
                     </div>
-                    <div class="value-card">
-                        <div class="card-title">AI Exploration</div>
-                        <div class="card-text">Dive into the latest in AI, prompt engineering, and ethical technology—no prior experience needed.</div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Coding & Development</h3>
+                        <p class="feature-description">Write, debug, and explain code in dozens of programming languages. Perfect for learning new technologies, building projects, and understanding software architecture.</p>
                     </div>
-                    <div class="value-card">
-                        <div class="card-title">Community & Networking</div>
-                        <div class="card-text">Connect with fellow Mavericks, industry mentors, and alumni to build your future in tech.</div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Creative Writing</h3>
+                        <p class="feature-description">From essays and reports to creative fiction and poetry, Claude can help brainstorm, draft, edit, and refine written content across all styles and formats.</p>
                     </div>
-                    <div class="value-card">
-                        <div class="card-title">Career Prep</div>
-                        <div class="card-text">Interview prep, resume reviews, and guidance for AI-driven careers—by students, for students.</div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Research & Analysis</h3>
+                        <p class="feature-description">Process complex information, summarize research papers, analyze data trends, and synthesize insights from multiple sources with precision and clarity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Math & Science</h3>
+                        <p class="feature-description">Solve mathematical problems, explain scientific concepts, work through equations, and provide step-by-step solutions across STEM disciplines.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Learning Partner</h3>
+                        <p class="feature-description">Adapt teaching style to your learning pace, provide personalized explanations, create practice problems, and offer constructive feedback on your work.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Why Claude AI -->
-        <section class="section">
+        <section class="content-section" style="background: #f8f9fa; padding: 4rem 0;">
             <div class="container">
-                <h2 class="section-title" style="font-size:2rem; margin-bottom:1.5rem;">Why Claude AI?</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="card-title">State-of-the-Art</div>
-                        <div class="card-text">Claude is one of the world’s most advanced conversational AIs—perfect for learning, building, and innovating.</div>
-                    </div>
-                    <div class="value-card">
-                        <div class="card-title">Ethical & Responsible</div>
-                        <div class="card-text">We focus on responsible, ethical AI development and use—preparing students to lead with integrity.</div>
-                    </div>
-                    <div class="value-card">
-                        <div class="card-title">Open to All</div>
-                        <div class="card-text">No coding or AI background required—just curiosity and a willingness to learn.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Membership Benefits -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title" style="font-size:2rem; margin-bottom:1.5rem;">Membership Benefits</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="card-title">Real-World Experience</div>
-                        <div class="card-text">Build your portfolio with real projects, leadership roles, and hands-on AI experience.</div>
-                    </div>
-                    <div class="value-card">
-                        <div class="card-title">Inclusive Community</div>
-                        <div class="card-text">Join a welcoming, diverse group of Mavericks passionate about technology and the future.</div>
-                    </div>
-                    <div class="value-card">
-                        <div class="card-title">Career Connections</div>
-                        <div class="card-text">Network with industry leaders, alumni, and peers to launch your AI career.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leadership Team -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title" style="font-size:2rem; margin-bottom:1.5rem;">Leadership Team</h2>
-                <div class="board-grid" style="display:flex; flex-wrap:wrap; gap:2.5rem; justify-content:flex-start;">
-                    <div class="board-profile" style="background:#f7f7fa; border-radius:1.2rem; padding:2.2rem 1.2rem; box-shadow:none; min-width:200px; flex:1 1 220px; max-width:240px; align-items:center;">
-                        <img class="profile-img" src="Emnet.jpeg" alt="Emnet Mekonnen" style="width:90px; height:90px; border-radius:50%; object-fit:cover; margin-bottom:1.1rem; border:2.5px solid #e3e3f3;">
-                        <div class="profile-name" style="font-size:1.13rem; font-weight:700; color:#18181a; margin-bottom:0.3rem;">Emnet Mekonnen</div>
-                        <div class="profile-role" style="font-size:1rem; color:#5a4fcf; margin-bottom:0.2rem;">President</div>
-                        <div class="profile-email" style="font-size:0.97rem; color:#555; margin-bottom:0.2rem;">emnet.mekonnen@mnsu.edu</div>
-                        <a href="https://www.linkedin.com/in/emnet-mekonnen-03660a298/" target="_blank" style="color:#0a66c2; font-size:0.97rem; margin-top:0.2rem; text-decoration:underline;">LinkedIn</a>
-                    </div>
-                    <div class="board-profile" style="background:#f7f7fa; border-radius:1.2rem; padding:2.2rem 1.2rem; box-shadow:none; min-width:200px; flex:1 1 220px; max-width:240px; align-items:center;">
-                        <img class="profile-img" src="Eyosias.jpg" alt="Eyosias Tesfaye" style="width:90px; height:90px; border-radius:50%; object-fit:cover; margin-bottom:1.1rem; border:2.5px solid #e3e3f3;">
-                        <div class="profile-name" style="font-size:1.13rem; font-weight:700; color:#18181a; margin-bottom:0.3rem;">Eyosias Tesfaye</div>
-                        <div class="profile-role" style="font-size:1rem; color:#5a4fcf; margin-bottom:0.2rem;">Secretary</div>
-                        <div class="profile-email" style="font-size:0.97rem; color:#555; margin-bottom:0.2rem;">eyosias.tesfaye@mnsu.edu</div>
-                        <a href="https://www.linkedin.com/in/eyosias-tesfaye-b261042a4/" target="_blank" style="color:#0a66c2; font-size:0.97rem; margin-top:0.2rem; text-decoration:underline;">LinkedIn</a>
-                    </div>
-                    <div class="board-profile" style="background:#f7f7fa; border-radius:1.2rem; padding:2.2rem 1.2rem; box-shadow:none; min-width:200px; flex:1 1 220px; max-width:240px; align-items:center;">
-                        <img class="profile-img" src="robel.jpg" alt="Robel Gizaw Solomon" style="width:90px; height:90px; border-radius:50%; object-fit:cover; margin-bottom:1.1rem; border:2.5px solid #e3e3f3;">
-                        <div class="profile-name" style="font-size:1.13rem; font-weight:700; color:#18181a; margin-bottom:0.3rem;">Robel Gizaw Solomon</div>
-                        <div class="profile-role" style="font-size:1rem; color:#5a4fcf; margin-bottom:0.2rem;">Treasurer</div>
-                        <div class="profile-email" style="font-size:0.97rem; color:#555; margin-bottom:0.2rem;">robel.gizaw@mnsu.edu</div>
-                        <a href="#" style="color:#0a66c2; font-size:0.97rem; margin-top:0.2rem; text-decoration:underline;">LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Get Involved -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title" style="font-size:2rem; margin-bottom:1.5rem;">Get Involved</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="card-title">Attend an Event</div>
-                        <div class="card-text">Check out our <a href="events.html" style="color:#a67c52; text-decoration:underline;">Events</a> page for upcoming workshops, meetups, and hackathons.</div>
-                    </div>
-                    <div class="value-card">
-                        <div class="card-title">Become a Member</div>
-                        <div class="card-text">Sign up to join our community and get access to exclusive resources, projects, and opportunities.</div>
-                    </div>
-                    <div class="value-card">
-                        <div class="card-title">Connect with Us</div>
-                        <div class="card-text">Follow us on <a href="https://www.linkedin.com/company/msu-claude-builders/about/?viewAsMember=true" target="_blank" style="color:#0a66c2; text-decoration:underline;">LinkedIn</a> and <a href="https://www.instagram.com/claudemnsu2025/" target="_blank" style="color:#d6249f; text-decoration:underline;">Instagram</a> for updates.</div>
-                    </div>
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #18181a; text-align: center; margin-bottom: 2rem;">Why Claude?</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 1.2rem; color: #555; line-height: 1.7; margin-bottom: 2rem;">
+                        Claude stands out through its commitment to safety, accuracy, and nuanced understanding. Built with Constitutional AI principles, Claude is designed to be genuinely helpful while avoiding harmful outputs. This makes it an ideal tool for educational environments, professional development, and creative exploration.
+                    </p>
+                    <p style="font-size: 1.2rem; color: #555; line-height: 1.7; margin-bottom: 3rem;">
+                        Whether you're a beginner learning your first programming language or an advanced student tackling complex research projects, Claude adapts to your level and provides personalized, contextual assistance that grows with your knowledge.
+                    </p>
+                    <a href="https://www.anthropic.com/claude" target="_blank" class="btn-primary" style="background:#a67c52; margin-right: 1rem;">Learn More About Claude</a>
                 </div>
             </div>
         </section>
@@ -470,6 +351,7 @@
                     <p><a href="https://www.instagram.com/claudemnsu2025/" target="_blank" style="color:#d6249f; font-weight:600;">Instagram</a></p>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>© 2025 Claude Builders Mnsu Chapter. All rights reserved. | Go Mavericks!</p>
             </div>
@@ -477,23 +359,6 @@
     </footer>
 
     <script>
-        function toggleMobileMenu() {
-            const navRight = document.querySelector('.nav-right');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navRight.classList.toggle('active');
-            toggle.classList.toggle('active');
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navRight = document.querySelector('.nav-right');
-            if (!nav.contains(event.target) && navRight.classList.contains('active')) {
-                navRight.classList.remove('active');
-                document.querySelector('.mobile-menu-toggle').classList.remove('active');
-            }
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -536,7 +401,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.value-card, .mission-card, .vision-card, .board-profile').forEach(el => {
+        document.querySelectorAll('.feature-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';
